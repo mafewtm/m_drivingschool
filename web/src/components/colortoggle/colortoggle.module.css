@@ -1,0 +1,57 @@
+.navbar {
+  height: fit-content;
+  width: fit-content;
+  padding: var(--mantine-spacing-xs);
+  border-top-left-radius: var(--mantine-radius-sm);
+  border-bottom-left-radius: var(--mantine-radius-sm);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.link {
+  width: rem(50px);
+  height: rem(50px);
+  border-radius: var(--mantine-radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-1));
+
+  &:hover {
+    background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-6));
+  }
+
+  &[data-active] {
+    &,
+    &:hover {
+      background-color: var(--mantine-color-blue-light);
+      color: var(--mantine-color-blue-light-color);
+    }
+  }
+}
+
+.icon {
+  width: rem(20px);
+  height: rem(20px);
+}
+
+.dark {
+  @mixin dark {
+    display: none;
+  }
+
+  @mixin light {
+    display: block;
+  }
+}
+
+.light {
+  @mixin light {
+    display: none;
+  }
+
+  @mixin dark {
+    display: block;
+  }
+}

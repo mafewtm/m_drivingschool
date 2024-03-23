@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
+import { VisibilityProvider } from './providers/VisibilityProvider';
 import { MantineProvider } from '@mantine/core';
 import { debugData } from './utils/debugData';
 import { isEnvBrowser } from './utils/misc';
@@ -10,9 +12,7 @@ import './global.css'
 debugData([
   {
     action: 'setVisible',
-    data: {
-      visible: true,
-    }
+    data: true,
   },
 ]);
 
@@ -29,7 +29,9 @@ if (isEnvBrowser()) {
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MantineProvider defaultColorScheme='dark'>
-      <App />
+      <VisibilityProvider>
+        <App />
+      </VisibilityProvider>
     </MantineProvider>
   </React.StrictMode>
 );
